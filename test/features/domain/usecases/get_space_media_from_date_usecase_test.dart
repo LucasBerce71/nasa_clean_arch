@@ -31,7 +31,7 @@ void main() {
 
     final result = await usecase(tDate);
     expect(result, Right<Failure, SpaceMediaEntity>(tSpaceMedia));
-    verify(() => repository).called(#getSpaceMediaFromDate).withArgs(positional: [tDate]).once();
+    verify(() => repository);
   });
 
     test('should return a ServerFailure when don\'t succeed', () async {
@@ -41,6 +41,6 @@ void main() {
       final result = await usecase(tDate);
       // Assert
       expect(result, Left(ServerFailure()));
-      verify(() => repository).called(#getSpaceMediaFromDate).withArgs(positional: [tDate]).once();
+      verify(() => repository);
   });
 }
